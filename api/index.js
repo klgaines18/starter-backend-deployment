@@ -6,6 +6,7 @@ const productsRouter = require("./products/products.router");
 console.log("Database_URL", process.env.PRODUCTION_DATABASE_URL);
 
 app.use(express.json());
+app.set('json spaces', 2) // remove this if production issues
 app.use("/api/ping", (_request, response, _next) => {
   response.setHeader('Content-Type', 'application/json')
   response.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate')
